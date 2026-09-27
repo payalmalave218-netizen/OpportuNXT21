@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - SECRET_KEY=local-dev-secret-change-me
+      - CORS_ORIGINS=*
+      - DATABASE_URL=sqlite:////app/data/opportunxt.db
+    volumes:
+      - opportunxt-data:/app/data
+
+volumes:
+  opportunxt-data:
